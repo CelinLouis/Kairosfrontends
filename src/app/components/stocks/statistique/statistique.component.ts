@@ -76,15 +76,6 @@ export class StatistiqueComponent implements OnInit {
           ],
         },
       });
-/*      let noms = new Set();
-     let distinctIng: any[] = [];
-     this.result.map((ing:any)=>{
-       noms.add(ing.nom_ingredient);
-     });
-     noms.forEach((nom_ingredient:any)=>{
-      distinctIng.push(this.result.filter((ing :any)=>ing.nom_ingredient == nom_ingredient)[0])
-    })
-     console.log("Nom Ingredient",distinctIng); */
     });
   }
 

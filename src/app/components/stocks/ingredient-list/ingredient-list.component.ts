@@ -5,6 +5,7 @@ import { IngredientService } from 'src/app/services/ingredient.service';
 import { DatePipe } from '@angular/common';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { StockMenuService } from 'src/app/services/stock-menu.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-ingredient-list',
@@ -12,12 +13,12 @@ import { StockMenuService } from 'src/app/services/stock-menu.service';
   styleUrls: ['./ingredient-list.component.css']
 })
 export class IngredientListComponent implements OnInit {
-
+  
   ingredients?: Ingredient[];
   listeVide= false;
   next!: string;
   previous!: string;
-  transactionsUrl = "http://localhost:8000/ingredients/";
+  transactionsUrl = environment.DATABASE_URL + "/ingredients/";
   message?:string;
   faCoffee = faCoffee;
   cout!: number;

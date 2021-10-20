@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { AccueilService } from 'src/app/services/accueil.service';
 import { StockMenuService } from 'src/app/services/stock-menu.service';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-historique-achat',
   templateUrl: './historique-achat.component.html',
@@ -30,7 +31,7 @@ export class HistoriqueAchatComponent implements OnInit {
   historique$ : Observable<Historique[]>;
   searchResult: boolean = true;
   filter : FormControl;
-  transactionsUrl = "http://localhost:8000/historiques/";
+  transactionsUrl = environment.DATABASE_URL +"/historiques/";
   constructor(public apiDepe : AccueilService,public api:StockMenuService, private pipe: DecimalPipe,private servise: HistoriqueAchatService,private categorie: IngredientService,public datepipe: DatePipe) {
     this.filter = new FormControl('');
     this.nbItem = 10;

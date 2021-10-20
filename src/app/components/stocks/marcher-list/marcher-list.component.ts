@@ -67,18 +67,6 @@ export class MarcherListComponent implements OnInit {
         });
   }
 
-  // retrieveIngredients(): void {
-  //   this.serviseIngred.getAll()
-  //     .subscribe(
-  //       data => {
-  //         this.ingredients = data;
-  //         console.log(data);
-  //       },
-  //       error => {
-  //         console.log(error);
-  //       });
-  // }
-
   refreshList(): void {
     this.retrieveMarchers();
   }

@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 import { Categorie } from 'src/app/models/categorie.model';
 import { CategorieService } from 'src/app/services/categorie.service';
 import { StockMenuService } from 'src/app/services/stock-menu.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-categorie-list',
@@ -14,7 +15,7 @@ export class CategorieListComponent implements OnInit {
   categories?: Categorie[];
   next!: string;
   previous!: string;
-  transactionsUrl = "http://localhost:8000/categories/";
+  transactionsUrl = environment.DATABASE_URL +"/categories/";
   cout!: number;
   limit!: number;
   nbrPage!: number;
