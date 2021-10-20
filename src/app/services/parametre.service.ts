@@ -8,11 +8,13 @@ import { environment } from 'src/environments/environment';
 })
 export class ParametreService {
 
-  baseurl = environment.DATABASE_URL;
-
+  
   httpHeaders = new HttpHeaders({'Content-Type' : 'application/json'});
-  UTILISATEUR_URL = "http://localhost:8000/"+"utilisateur/liste/";
-  PROFILE_URL = "http://localhost:8000/"+"utilisateur/profile/";
+  
+  
+  baseurl = environment.DATABASE_URL;
+  UTILISATEUR_URL = this.baseurl + "/utilisateur/liste/";
+  PROFILE_URL = this.baseurl + "/utilisateur/profile/";
   
   constructor(private http: HttpClient) { }
 
