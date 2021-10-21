@@ -1,15 +1,9 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 
-
-const httpOptions = {
-    headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-    })
-};
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +15,6 @@ export class LoginService {
     LOGIN_URL = this.baseUrl + '/api/login/';
     LOGOUT_URL = this.baseUrl + '/api/logout/';
     UTULISATEUR_URL = this.baseUrl + '/utilisateur/';
-    
 
     constructor(private httpclient: HttpClient, private router: Router){}
 

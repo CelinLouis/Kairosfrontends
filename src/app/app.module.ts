@@ -205,17 +205,13 @@ registerLocaleData(localFr)
     ),
     MatProgressBarModule,
     FontAwesomeModule,
-    HttpClientXsrfModule.withOptions({
-      cookieName : 'csrftoken',
-      headerName: 'sessionid',
-  })
+    HttpClientXsrfModule.withOptions({cookieName : 'csrftoken'})
   ],
   providers: [
     LoginService,
     LoginGuard,
     DatePipe,
     MatDatepickerModule,
-    HttpXsrfInterceptorService,
 
     {provide : LOCALE_ID, useValue : 'fr-FR'},MessagingService,AsyncPipe,FilterPipe,LimitToPipe,
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
