@@ -205,7 +205,10 @@ registerLocaleData(localFr)
     ),
     MatProgressBarModule,
     FontAwesomeModule,
-    HttpClientXsrfModule.withOptions({cookieName : 'csrftoken'})
+    HttpClientXsrfModule.withOptions({
+      cookieName : 'csrftoken',
+      headerName: 'sessionid',
+  })
   ],
   providers: [
     LoginService,

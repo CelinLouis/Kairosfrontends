@@ -21,6 +21,7 @@ export class LoginService {
     LOGIN_URL = this.baseUrl + '/api/login/';
     LOGOUT_URL = this.baseUrl + '/api/logout/';
     UTULISATEUR_URL = this.baseUrl + '/utilisateur/';
+    
 
     constructor(private httpclient: HttpClient, private router: Router){}
 
