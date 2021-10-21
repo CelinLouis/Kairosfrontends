@@ -36,7 +36,7 @@
           <!-- small box -->
           <div class="small-box six">
             <div class="inner">
-              <h3>{{totalDepense | number : '0.0-2' : 'fr'}} Ar</h3>
+              <h3>{{ depenseJour | number : '0.0-2' : 'fr'}} Ar</h3>
 
               <p>Depense du jours</p>
             </div>
@@ -91,6 +91,27 @@
             <a class="small-box-footer">Plus d'infos <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
+        <!--
+        <form>
+        <label for="start">Date start</label>
+        <input id="start" type="date" (change)="onStart($event)">
+        <label for="end">Date end</label>
+        <input id="end" type="date" (change)="onEnd($event)">
+        <button (click)="searchBetweenTwoDate()" class="btn btn-pimary">Search</button>
+      </form>
+      -->
+
+      <div class="col-3">
+            <mat-form-field>
+              <mat-label>Choisir Date</mat-label>
+              <mat-date-range-input [rangePicker]="picker" >
+                <input matStartDate [(ngModel)]="datepicker.start">
+                <input matEndDate (dateInput)="getDate(); searchBetweenTwoDate()" [(ngModel)]="datepicker.end">
+              </mat-date-range-input>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+          </div>
       </div>
 
     </div>

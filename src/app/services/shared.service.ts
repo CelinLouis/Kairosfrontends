@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 
-const APIUrl = environment;
+const APIUrl = environment.DATABASE_URL;
 const httpheaders = new HttpHeaders({'content-type':'application/json'})
 
 @Injectable({
@@ -34,12 +34,12 @@ export class SharedService {
 
 
   get(id:any):Observable<any>{
-    return this.http.get(APIUrl + '/produites/'+ id,
+    return this.http.get(APIUrl + '/produites/'+id,
     {headers:httpheaders});
   }
 
   getProduitRe(id:any):Observable<any>{
-    return this.http.get(APIUrl + '/produiterecette/'+ id ,
+    return this.http.get(APIUrl + '/produiterecette/'+id ,
     {headers:httpheaders});
   }
 

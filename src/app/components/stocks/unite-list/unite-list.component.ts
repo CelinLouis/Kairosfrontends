@@ -30,7 +30,6 @@ export class UniteListComponent implements OnInit {
       .subscribe(
         data => {
           this.unites = data;
-          console.log(data);
         },
         error => {
           console.log(error);

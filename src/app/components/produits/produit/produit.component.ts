@@ -76,7 +76,6 @@ export class ProduitComponent implements OnInit {
             }
 
           }
-            console.log('tableau : ',this.tableau)
             this.myArrayMax(this.tableau);
       }
     )
@@ -173,7 +172,6 @@ getProduit = () => {
   this.api.getProduit().subscribe(
     data => {
       this.produit = data;
-      console.log(this.produit)
       this.nbProduit = data.length;
       this.produit$ = this.filter.valueChanges.pipe(
         startWith(''),

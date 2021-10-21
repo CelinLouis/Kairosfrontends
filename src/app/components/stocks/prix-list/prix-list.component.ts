@@ -38,7 +38,6 @@ export class PrixListComponent implements OnInit {
       .subscribe(
         data => {
           this.prixs = data;
-          console.log(data);
         },
         error => {
           console.log(error);

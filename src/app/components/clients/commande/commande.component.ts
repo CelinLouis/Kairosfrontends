@@ -122,7 +122,6 @@ export class CommandeComponent implements OnInit {
           this.ingredientStock.forEach(element => {
             ingredientStock.push(element)
           });
-          console.log(ingredientStock , 'Ingredient globale')
         this.getNombre();
         }
       },
@@ -340,7 +339,6 @@ export class CommandeComponent implements OnInit {
         this.active = data[0].nomCate;
         this.getProduit(data[0].id)
         this.getStock();
-        console.log(data)
       },
       error => {
         console.log(error);

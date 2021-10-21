@@ -28,11 +28,6 @@ export class StatistiqueComponent implements OnInit {
       this.nomIngredients = this.result.map((nom: any) => nom.nom_ingredient)
       this.depences = this.result.map((vola: any) => vola.total_achat)
       this.nbrs = this.result.map((isa: any) => isa.nombre_achat)
-      console.log("Resultat",this.result);
-      console.log("nomIngredients",this.nomIngredients);
-      console.log("depences",this.depences);
-      console.log("nombre",this.nbrs);
-
       this.chart = new Chart('canvas', {
         type: 'bar',
         data: {
@@ -42,10 +37,7 @@ export class StatistiqueComponent implements OnInit {
               label: '# Depence',
               data: this.depences,
               borderWidth: 1,
-              /* fill: false, */
-              backgroundColor: [
-                '#fd3f92',
-              ],
+              backgroundColor: ['#fd3f92'],
               borderColor: 'rgba(93, 175, 89, 0.1)'
             },
           ],
@@ -69,7 +61,6 @@ export class StatistiqueComponent implements OnInit {
               label: '# Nombre d\'achat',
               data: this.nbrs,
               borderWidth: 1,
-              //fill: false,
               backgroundColor: 'rgba(93, 175, 89, 0.1)',
               borderColor: '#fd3f92'
             },

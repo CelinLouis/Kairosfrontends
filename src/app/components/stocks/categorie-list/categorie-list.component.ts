@@ -42,20 +42,6 @@ export class CategorieListComponent implements OnInit {
       .subscribe(
         data => {
           this.categories = data;
-         /*  this.cout = data.count;
-          this.limit = 5;
-          this.nbrPage = this.cout / this.limit;
-          if (this.nbrPage<1) {
-            this.nbrPage = 1;
-          }
-          if (data.next) {
-            this.next = data.next;
-          }
-
-          if (data.previous) {
-            this.previous = data.previous;
-          } */
-          console.log(data);
         },
         error => {
           console.log(error);
@@ -64,17 +50,7 @@ export class CategorieListComponent implements OnInit {
 
     refreshList(): void {
       this.retrieveCategories();
-     /*  this.fetchNext();
-      this.fetchPrevious(); */
     }
 
-   /*  fetchNext() {
-      this.retrieveCategories(this.next);
-    }
-
-    fetchPrevious() {
-      this.retrieveCategories(this.previous);
-    }
-   */
 
 }

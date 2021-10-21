@@ -14,7 +14,7 @@ export class AchatService {
   constructor(private http: HttpClient) { }
 
   getAllCommande(): Observable<any>{
-    return this.http.get(this.baseUrl + 'commandes/',
+    return this.http.get(this.baseUrl + '/commandes/',
     {headers : this.httpHeaders});
   }
 }

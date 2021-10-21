@@ -15,7 +15,7 @@ export class AccueilService {
   constructor(private http: HttpClient) { }
 
   totalDepense(): Observable<any>{
-    return this.http.get(this.baseUrl+ 'totaldepense',
+    return this.http.get(this.baseUrl+ '/totaldepense',
     {headers : this.httpHeaders});
   }
 }

@@ -60,7 +60,6 @@ export class MarcherListComponent implements OnInit {
       .subscribe(
         data => {
           this.marchers = data;
-          console.log(data);
         },
         error => {
           console.log(error);

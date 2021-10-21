@@ -36,16 +36,11 @@ export class MessageComponent implements OnInit {
         }else{
           this.ingredients = data;
           this.listeVide=true;
-
             for (const iterator of data) {
               this.message=iterator.nom_ingredient;
               this.notifyService.showWarning("Quantite en stock base",this.message)
            }
-
         }
-
-
-        console.log(data);
       },
       error => {
         console.log(error);
@@ -53,26 +48,5 @@ export class MessageComponent implements OnInit {
     });
 
   }
-
-
 }
 
-
-
-
-  //count++
-         /*  while (count < data.length) {
-            this.message = this.result[count];
-            this.notifyService.showWarning("Quantite en stock base",this.message.nom_ingredient);
-          } */
-         /*  for (let index = 0; index < data.length; index++) {
-            this.message = data[index];
-            this.notifyService.showWarning("Quantite en stock base",this.message.nom_ingredient);
-          } */
-          //this.nomIngredients = this.result.map((ingred: any) => ingred.nom_ingredient);
-         /*  for (const iterator of data) {
-            this.message=iterator.nom_ingredient;
-            this.notifyService.showWarning("Quantite en stock base",this.message)
-          } */
-         /*  this.message =this.result[count];
-          this.notifyService.showWarning("Quantite en stock base",this.message.nom_ingredient); */

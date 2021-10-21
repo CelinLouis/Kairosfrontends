@@ -17,6 +17,9 @@ import { environment } from 'src/environments/environment';
   providers: [DecimalPipe]
 })
 export class HistoriqueAchatComponent implements OnInit {
+  start= '';
+  end= '';
+  historique: any;
   depense : any;
   ingredient?: Ingredient[];
   ingredients?: Historique[];
@@ -92,7 +95,6 @@ export class HistoriqueAchatComponent implements OnInit {
 
             }
           )
-          console.log(data);
         },
         error => {
           console.log(error);
@@ -105,7 +107,6 @@ export class HistoriqueAchatComponent implements OnInit {
       .subscribe(
         data => {
             this.ingredient = data;
-            console.log(data);
         },
         error => {
           console.log(error);
@@ -115,6 +116,26 @@ export class HistoriqueAchatComponent implements OnInit {
   refreshList(): void {
     this.retrieveIngredients();
   }
+
+  onStart(event: any): void {
+    this.start = event.target.value;
+  }
+  onEnd(event: any): void {
+    this.end = event.target.value;
+  }
+
+  // searchBetweenTwoDate(): void {
+  //       const startDate= this.start;
+  //       const endDate= this.end;
+  //     this.servise.search(startDate, endDate).subscribe(
+  //       search => {
+  //         this.historique = search.depense;
+  //         console.log("Backend",search);
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       });
+  // }
 
 }
 interface histoface {

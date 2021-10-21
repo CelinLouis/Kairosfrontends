@@ -37,7 +37,6 @@ export class LoginGuard implements CanActivate{
             this.getProfile().subscribe( result => {
                 observer.next(true);
                 observer.complete();
-                console.log(result);
             }, error =>{
                 this.router.navigate(['']);
                 observer.next(false);

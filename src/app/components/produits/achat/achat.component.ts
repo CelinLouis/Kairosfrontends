@@ -86,9 +86,8 @@ export class AchatComponent implements OnInit {
             }
 
           }
-            console.log('tableau : ',this.tableau)
-            this.nbProduitCom = this.tableau.length;
-            this.myArrayMax(this.tableau);
+          this.nbProduitCom = this.tableau.length;
+          this.myArrayMax(this.tableau);
       }
     )
 

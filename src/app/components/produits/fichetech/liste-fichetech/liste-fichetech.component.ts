@@ -94,7 +94,6 @@ deleteClick(item:any){
 
   closeClick(){
   this.activateAddEditEditRecComp=false;
-  //this.activateAddEditRecComp=false;
 }
 
 addFich(){
@@ -106,7 +105,6 @@ addFich(){
 
   }
   this.service.addRec(data).subscribe(res=>{
-    console.log(res);
     if(res.message){
       this.message = res.message
       this.submit=true;
@@ -136,7 +134,6 @@ get(id: any): void {
     .subscribe(
       data => {
         this.produitexact = data;
-        console.log("produit",data);
       },
       error => {
         console.log(error);
@@ -159,7 +156,6 @@ getProduit(id: any): void {
     .subscribe(
       data => {
         this.ProduitRecette = data;
-        console.log(data , 'ProduitRecette');
         this.recette$ = this.filter.valueChanges.pipe(
           startWith(''),
           map(text => this.search(text, this.pipe)),

@@ -18,28 +18,25 @@ export class UniteService {
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<Unite[]> {
-    return this.http.get<Unite[]>(baseUrl + '/unites/',
+    return this.http.get<Unite[]>(baseUrl+'/unites/',
     {headers: httpHeaders});
   }
 
   get(id: any): Observable<Unite> {
-    return this.http.get(baseUrl + '/unites/' + id + '/',
+    return this.http.get(baseUrl+'/unites/'+id+'/',
     {headers: httpHeaders});
   }
 
   create(data: any): Observable<any> {
-    return this.http.post(baseUrl + '/unites/', data,
-    {headers: httpHeaders});
+    return this.http.post(baseUrl+'/unites/',data,{headers: httpHeaders});
   }
 
   update(id: any, data: any): Observable<any> {
-    return this.http.put(baseUrl + '/unites/' + id + '/', data,
-    {headers: httpHeaders});
+    return this.http.put(baseUrl +'/unites/'+id+'/',data,{headers: httpHeaders});
   }
 
   delete(id: any): Observable<any> {
-    return this.http.delete(baseUrl + '/unites/' + id + '/',
-    {headers: httpHeaders});
+    return this.http.delete(baseUrl+'/unites/'+id+'/',{headers: httpHeaders});
   }
 
 }

@@ -31,7 +31,6 @@ export class LieuListComponent implements OnInit {
       .subscribe(
         data => {
           this.lieux = data;
-          console.log(data);
         },
         error => {
           console.log(error);

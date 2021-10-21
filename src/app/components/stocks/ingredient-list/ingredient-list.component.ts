@@ -96,7 +96,6 @@ export class IngredientListComponent implements OnInit {
                 this.next = data.next;
                 this.previous = data.previous;
           }
-            console.log(data);
         },
         error => {
           console.log(error);

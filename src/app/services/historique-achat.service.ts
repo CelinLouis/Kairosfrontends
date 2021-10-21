@@ -37,4 +37,15 @@ export class HistoriqueAchatService {
     {headers: httpHeaders});
   }
 
+  getDepenseJour(): Observable<any> {
+    return this.http.get<any[]>(baseUrl + '/recherche',
+    {headers: httpHeaders});
+  }
+
+  search(data: any): Observable<any> {
+      return this.http.post<any>(baseUrl + '/recherche/',data,
+      {headers: httpHeaders});
+  }
+
+
 }
