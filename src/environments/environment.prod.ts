@@ -1,7 +1,7 @@
 export const environment = {
 
   production: true,
-  DATABASE_URL: 'http://kairosbackends.herokuapp.com',
+  DATABASE_URL: 'https://kairosbackends.herokuapp.com',
 
   firebase: {
     apiKey: "AIzaSyCULoRMdRmgEd-LxVmmOpsp4WP7iZLGNXA",
