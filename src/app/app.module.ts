@@ -212,6 +212,7 @@ registerLocaleData(localFr)
     LoginGuard,
     DatePipe,
     MatDatepickerModule,
+    HttpXsrfInterceptorService,
 
     {provide : LOCALE_ID, useValue : 'fr-FR'},MessagingService,AsyncPipe,FilterPipe,LimitToPipe,
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
