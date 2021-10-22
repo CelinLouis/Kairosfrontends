@@ -1,8 +1,8 @@
 export const environment = {
 
   production: false,
-  DATABASE_URL: 'http://localhost:8000',
-  // DATABASE_URL: 'https://kairosbackends.herokuapp.com',
+  // DATABASE_URL: 'http://localhost:8000',
+  DATABASE_URL: 'https://kairosbackends.herokuapp.com',
 
   firebase: {
     apiKey: "AIzaSyCULoRMdRmgEd-LxVmmOpsp4WP7iZLGNXA",
