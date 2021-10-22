@@ -41,10 +41,10 @@ export class LoginService {
         .set('pUsername', pUsername)
         .set('pPassword', pPassword);
         const userObject = {
-            username: pUsername,
-            password: pPassword
+            username: body.pUsername,
+            password: body.pPassword
         }
-        return this.httpclient.post(this.LOGIN_URL, userObject.toString(),
+        return this.httpclient.post(this.LOGIN_URL, userObject,
         {
           headers: enco,withCredentials:true
         });
