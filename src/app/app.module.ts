@@ -25,10 +25,8 @@ import { HttpXsrfInterceptorService } from './services/interceptors/http-xsrf-in
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-
+import { CookieModule } from 'ngx-cookie'
 
 
 
@@ -167,6 +165,7 @@ registerLocaleData(localFr)
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CookieModule.forRoot(),
     MatSliderModule,
     MatFormFieldModule,
     MatDatepickerModule,
@@ -205,7 +204,9 @@ registerLocaleData(localFr)
     ),
     MatProgressBarModule,
     FontAwesomeModule,
-    HttpClientXsrfModule.withOptions({cookieName : 'csrftoken'})
+    HttpClientXsrfModule.withOptions({
+      cookieName : 'csrftoken'
+    }),
   ],
   providers: [
     LoginService,
@@ -213,9 +214,9 @@ registerLocaleData(localFr)
     DatePipe,
     MatDatepickerModule,
 
+    {provide : HTTP_INTERCEPTORS , useClass : HttpXsrfInterceptorService, multi : true},
     {provide : LOCALE_ID, useValue : 'fr-FR'},MessagingService,AsyncPipe,FilterPipe,LimitToPipe,
     {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
-    {provide : HTTP_INTERCEPTORS , useClass : HttpXsrfInterceptorService, multi : true},
     
   ],
   bootstrap: [AppComponent],

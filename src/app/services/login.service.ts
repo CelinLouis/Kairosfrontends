@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
+import { CookieService } from "ngx-cookie";
 
 
 const httpOptions = {
@@ -14,6 +15,8 @@ const httpOptions = {
     withCredentials: true
     
 };
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -24,8 +27,11 @@ export class LoginService {
     LOGIN_URL = this.baseUrl + '/api/login/';
     LOGOUT_URL = this.baseUrl + '/api/logout/';
     UTULISATEUR_URL = this.baseUrl + '/utilisateur/';
+    USER_URL = this.baseUrl + '/api/login/user/olona';
 
-    constructor(private httpclient: HttpClient, private router: Router){}
+ 
+
+    constructor(private httpclient: HttpClient, private router: Router, private cookieService: CookieService){}
 
 
     login(pUsername: string, pPassword: string): Observable<any>{
@@ -38,6 +44,10 @@ export class LoginService {
 
     getUtilisateur(): Observable<any> {
         return this.httpclient.get(this.UTULISATEUR_URL, httpOptions);
+    }
+
+    getUser(data: any): Observable<any> {
+        return this.httpclient.get<any>(this.USER_URL, httpOptions);
     }
 
     logout(): Observable<any>{

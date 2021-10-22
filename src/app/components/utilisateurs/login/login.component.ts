@@ -15,15 +15,16 @@ import { AlertService } from '../../../services/alert.service';
 export class LoginComponent implements OnInit {
 
   wrongCredentials: boolean = false;
+  token = 'Token ';
+  utilisateurL: any;
 
   type: boolean = false;
   constructor(private loginService: LoginService, private router: Router, private loginGuard: LoginGuard ,public apiHead: HeaderService , public sweet: AlertService) {
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   onSubmit(form: NgModel){
-
     this.wrongCredentials = false;
 
     const username = form.value['username'];
@@ -31,20 +32,27 @@ export class LoginComponent implements OnInit {
 
     this.loginService.login(username, password).subscribe( 
       result => {
-        this.loginService.getUtilisateur().subscribe(
-          result => {
-            if(result.profile.type === 'Caissier'){
-                this.router.navigate(['commande/1']);
-                this.apiHead.userType = false;
-            }
-            else{
-                this.router.navigate(['accueil']);
-                this.apiHead.userType = true;
-            }
+        this.utilisateurL = result.key;
+        const data = {
+          "Authorization": this.token +this.utilisateurL
+        }
+        this.loginService.getUser(data).subscribe(
+          userCon => {
+            console.log(userCon)
+            if(userCon.profile.type === 'Caissier'){
+              this.router.navigate(['table']);
+              this.apiHead.userType = false;
+              console.log(result)
+          }
+          else{
+              this.router.navigate(['accueil']);
+              this.apiHead.userType = true;
+          }
           },
           error => {
             console.log(error);
           });
+    
       }, error => {
         this.wrongCredentials = true;
         console.log(error);
@@ -52,5 +60,22 @@ export class LoginComponent implements OnInit {
     )
   }
 
+
+  onGet(): void{
+    const data = {
+      "Authorization": this.token +this.utilisateurL
+    }
+    this.loginService.getUser(data).subscribe(
+      userCon => {
+        console.log(userCon)
+      },
+      error => {
+        console.log(error);
+      });
+
+  }
+
 }
+
+
 
