@@ -1,9 +1,8 @@
-import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
-import { CookieService } from "ngx-cookie";
 
 
 const httpOptions = {
@@ -15,8 +14,6 @@ const httpOptions = {
     withCredentials: true
     
 };
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -26,36 +23,21 @@ export class LoginService {
 
     LOGIN_URL = this.baseUrl + '/api/login/';
     LOGOUT_URL = this.baseUrl + '/api/logout/';
-    UTULISATEUR_URL = this.baseUrl + '/utilisateur/';
-    USER_URL = this.baseUrl + '/api/login/user/olona';
+    UTULISATEUR_URL = this.baseUrl + '/utilisateur';
 
- 
-
-    constructor(private httpclient: HttpClient, private router: Router, private cookieService: CookieService){}
+    constructor(private httpclient: HttpClient, private router: Router){}
 
 
     login(pUsername: string, pPassword: string): Observable<any>{
-        let enco : any = new HttpHeaders()
-        .set('Content-Type', 'application/x-www-form-urlencoded');
-        let body : any = new HttpParams()
-        .set('pUsername', pUsername)
-        .set('pPassword', pPassword);
         const userObject = {
-            username: body.pUsername,
-            password: body.pPassword
+            username: pUsername,
+            password: pPassword
         }
-        return this.httpclient.post(this.LOGIN_URL, userObject,
-        {
-          headers: enco,withCredentials:true
-        });
+        return this.httpclient.post(this.LOGIN_URL, userObject, httpOptions);
     }
 
     getUtilisateur(): Observable<any> {
         return this.httpclient.get(this.UTULISATEUR_URL, httpOptions);
-    }
-
-    getUser(data: any): Observable<any> {
-        return this.httpclient.get<any>(this.USER_URL, httpOptions);
     }
 
     logout(): Observable<any>{

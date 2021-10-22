@@ -21,9 +21,9 @@ const httpOptions = {
 export class LoginGuard implements CanActivate{
 
     profile = null;
-    // baseUrl = environment.DATABASE_URL + '/utilisateur/';
-    baseUrl = environment.DATABASE_URL;
-    USER_URL = this.baseUrl + '/api/login/user/olona';
+    baseUrl = environment.DATABASE_URL + '/utilisateur/';
+    // baseUrl = environment.DATABASE_URL;
+    // USER_URL = this.baseUrl + '/api/login/user/olona';
     
     constructor(private httpClient : HttpClient, private router:Router){}
 
@@ -33,7 +33,7 @@ export class LoginGuard implements CanActivate{
                 observer.next(this.profile);
                 observer.complete()
             } else {
-                this.httpClient.get(this.USER_URL, httpOptions).subscribe( profile => {
+                this.httpClient.get(this.baseUrl, httpOptions).subscribe( profile => {
                     this.profile = profile;
                     observer.next(profile);
                     observer.complete();
