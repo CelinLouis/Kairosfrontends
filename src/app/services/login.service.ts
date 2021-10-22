@@ -5,21 +5,16 @@ import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 
 
-const optionRequete = {
-  headers: new HttpHeaders({ 
+const httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    withCredentials: true,
     'Access-Control-Allow-Origin':'*',
-    'Content-Type' : 'application/json'
-  })
+    
 };
-
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-    httpHeaders = new HttpHeaders({
-        'Access-Control-Allow-Origin':'*',
-        'Content-Type' : 'application/json'
-    });
 
     baseUrl = environment.DATABASE_URL
 
@@ -35,15 +30,15 @@ export class LoginService {
             username: pUsername,
             password: pPassword
         }
-        return this.httpclient.post(this.LOGIN_URL, userObject,  {headers : this.httpHeaders});
+        return this.httpclient.post(this.LOGIN_URL, userObject, httpOptions);
     }
 
     getUtilisateur(): Observable<any> {
-        return this.httpclient.get(this.UTULISATEUR_URL, {headers : this.httpHeaders});
+        return this.httpclient.get(this.UTULISATEUR_URL, httpOptions);
     }
 
     logout(): Observable<any>{
-        return this.httpclient.post(this.LOGOUT_URL, {}, {headers : this.httpHeaders});
+        return this.httpclient.post(this.LOGOUT_URL, {}, httpOptions);
     }
 
 }
