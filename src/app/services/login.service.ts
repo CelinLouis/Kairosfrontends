@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs";
@@ -35,11 +35,19 @@ export class LoginService {
 
 
     login(pUsername: string, pPassword: string): Observable<any>{
+        let enco : any = new HttpHeaders()
+        .set('Content-Type', 'application/x-www-form-urlencoded');
+        let body : any = new HttpParams()
+        .set('pUsername', pUsername)
+        .set('pPassword', pPassword);
         const userObject = {
             username: pUsername,
             password: pPassword
         }
-        return this.httpclient.post(this.LOGIN_URL, userObject, httpOptions);
+        return this.httpclient.post(this.LOGIN_URL, userObject.toString(),
+        {
+          headers: enco,withCredentials:true
+        });
     }
 
     getUtilisateur(): Observable<any> {
