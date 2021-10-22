@@ -90,7 +90,6 @@ export class AccueilComponent implements OnInit {
       this.servise.search(data).subscribe(
         search => {
           this.totalDepense = search.depense;
-          console.log("Backend",search);
         },
         error => {
           console.log(error);

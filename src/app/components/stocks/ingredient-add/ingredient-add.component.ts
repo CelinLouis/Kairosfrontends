@@ -160,7 +160,6 @@ export class IngredientAddComponent implements OnInit {
       .subscribe(
         data => {
           this.categories = data;
-          console.log(data);
         },
         error => {
           console.log(error);
@@ -172,7 +171,6 @@ export class IngredientAddComponent implements OnInit {
       .subscribe(
         data => {
           this.unites = data;
-          console.log(data);
         },
         error => {
           console.log(error);
@@ -184,7 +182,6 @@ export class IngredientAddComponent implements OnInit {
       .subscribe(
         data => {
           this.lieux = data;
-          console.log(data);
         },
         error => {
           console.log(error);
@@ -215,7 +212,6 @@ export class IngredientAddComponent implements OnInit {
       .subscribe(
         data => {
           this.ingredients = data;
-          console.log(data);
         },
         error => {
           console.log(error);
