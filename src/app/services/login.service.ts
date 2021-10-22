@@ -6,9 +6,12 @@ import { environment } from "src/environments/environment";
 
 
 const httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-    withCredentials: true,
-    'Access-Control-Allow-Origin':'*',
+    headers: new HttpHeaders({ 
+        'Content-Type': 'application/json',
+    }),
+    'Access-Control-Allow-Origin':'https://kairos6t.herokuapp.com/',
+    'Access-Control-Allow-Credentials': true,
+    withCredentials: true
     
 };
 @Injectable({
@@ -20,7 +23,7 @@ export class LoginService {
 
     LOGIN_URL = this.baseUrl + '/api/login/';
     LOGOUT_URL = this.baseUrl + '/api/logout/';
-    UTULISATEUR_URL = this.baseUrl + '/utilisateur';
+    UTULISATEUR_URL = this.baseUrl + '/utilisateur/';
 
     constructor(private httpclient: HttpClient, private router: Router){}
 
