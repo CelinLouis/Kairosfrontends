@@ -29,38 +29,38 @@ export class LoginComponent implements OnInit {
     const username = form.value['username'];
     const password = form.value['password'];
 
-    if(username == "Admin" && password == "admin@123"){
-      this.router.navigate(['accueil']);
-      this.apiHead.userType = true;
-    } else if(username == "Caissier" && password == "caissier@123") {
-      this.router.navigate(['commande/1']);
-      this.apiHead.userType = false;
-    }else{
-      var text = "Nom d'utilisateur ou Mot de passe incorrect";
-      this.sweet.alertErreur(text)
-    }
+    // if(username == "Admin" && password == "admin@123"){
+    //   this.router.navigate(['accueil']);
+    //   this.apiHead.userType = true;
+    // } else if(username == "Caissier" && password == "caissier@123") {
+    //   this.router.navigate(['commande/1']);
+    //   this.apiHead.userType = false;
+    // }else{
+    //   var text = "Nom d'utilisateur ou Mot de passe incorrect";
+    //   this.sweet.alertErreur(text)
+    // }
 
-    // this.loginService.login(username, password).subscribe( 
-    //   result => {
-    //     this.loginService.getUtilisateur().subscribe(
-    //       result => {
-    //         if(result.profile.type === 'Caissier'){
-    //             this.router.navigate(['commande/1']);
-    //             this.apiHead.userType = false;
-    //         }
-    //         else{
-    //             this.router.navigate(['accueil']);
-    //             this.apiHead.userType = true;
-    //         }
-    //       },
-    //       error => {
-    //         console.log(error);
-    //       });
-    //   }, error => {
-    //     this.wrongCredentials = true;
-    //     console.log(error);
-    //   }
-    // )
+    this.loginService.login(username, password).subscribe( 
+      result => {
+        this.loginService.getUtilisateur().subscribe(
+          result => {
+            if(result.profile.type === 'Caissier'){
+                this.router.navigate(['commande/1']);
+                this.apiHead.userType = false;
+            }
+            else{
+                this.router.navigate(['accueil']);
+                this.apiHead.userType = true;
+            }
+          },
+          error => {
+            console.log(error);
+          });
+      }, error => {
+        this.wrongCredentials = true;
+        console.log(error);
+      }
+    )
   }
 
 }

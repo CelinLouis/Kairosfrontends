@@ -2,7 +2,7 @@
   "name": "kairos-frontend",
   "version": "0.0.0",
   "engines": {
-    "node": "v14.17.1",
+    "node": "v12.18.3",
     "npm": "7.19.1"
   },
   "scripts": {
